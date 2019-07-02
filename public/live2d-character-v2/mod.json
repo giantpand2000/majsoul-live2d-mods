@@ -1,0 +1,22 @@
+{
+    "name": "一姬改Live2D动画",
+    "author": "GiantPanda",
+    "description": "将一姬的立绘替换为Live2D动画，Live2D素材可替换。",
+    "dir": "/files",
+    "preview": "preview.jpg",
+    "replace": [],
+    "execute": {
+        "name": "一姬改Live2D动画插件",
+        "entry": [
+            "lib/fetch.umd.js",
+            "lib/live2d-sdk.clj-pack.min.js",
+            "lib/laya-l2d.js",
+            "lib/character-skin.js"
+        ],
+        "executePreferences": {
+            "document": true,
+            "XMLHttpRequest": true,
+            "writeableWindowObject": true
+        }
+    }
+}

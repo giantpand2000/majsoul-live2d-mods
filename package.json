@@ -1,0 +1,26 @@
+{
+  "name": "majsoul-live2d-mods",
+  "version": "1.0.0",
+  "description": "Live2D Character Mods for Majsoul Web Game",
+  "main": "src/index.js",
+  "scripts": {
+    "build-v2": "npx gulp v2",
+    "build-v3": "npx gulp v3",
+    "pack-v2": "npx gulp v2-pack",
+    "pack-v3": "npx gulp v3-pack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "majsoul",
+    "live2d",
+    "mod",
+    "cubism"
+  ],
+  "author": "GiantPanda",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-zip": "^5.0.0"
+  }
+}
