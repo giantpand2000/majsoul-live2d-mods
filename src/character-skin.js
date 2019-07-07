@@ -36,6 +36,10 @@
             this.origin_rect = uiscript.UIRect.CreateFromSprite(this.img);
             this.img.skin = "";
             this._img_visible = true;
+
+            this.syncTimerHandler = this.syncSize.bind(this);
+            this.syncTimer = false;
+            this.l2dRect = [];
         }
 
         // proxy elem
@@ -56,9 +60,15 @@
                 target[prop] = value;
 
                 // sync size
-                let {x, y} = this.img.parent.localToGlobal(this.img, true);
-                let {width, height} = this.img;
-                l2d[layoutFn]([x, y, width, height]);
+                let {x, y, width, height} = this.img;
+                let {x: l, y: t} = this.img.parent.localToGlobal({x, y}, true);
+                let {x: r, y: b} = this.img.parent.localToGlobal({x: x + width, y: y + height}, true);
+                let [x0, y0, w0, h0] = this.l2dRect;
+                let [x1, y1, w1, h1] = [l, t, r - l, b - t];
+                if (x0 !== x1 || y0 !== y1 || w0 !== w1 || h0 !== h1) {
+                    this.l2dRect = [x1, y1, w1, h1];
+                    l2d[layoutFn](this.l2dRect);
+                }
             }
             else {
                 target[prop] = value;
@@ -79,6 +89,7 @@
         _setLoadedTexture (charId, skinType) {
             let arr = l2dForCharId(charId);
             this.l2d = null;
+            this.stopSyncSize();
             if (arr && skinType == 'full') {
                 let [l2d, layoutFn] = arr;
                 this.l2d = l2d;
@@ -86,9 +97,7 @@
                 this.img_visible = false;
                 this.img.parent.addChildAt(l2d, 0);
                 this.loaded = true;
-                Promise.resolve().then(_ => {
-                    this.img.x = this.img.x;
-                });
+                this.startSyncSize();
             }
             else {
                 if (skinType == 'full') {
@@ -99,11 +108,33 @@
             }
         }
 
+        startSyncSize() {
+            if (this.syncTimer == false) {
+                this.syncTimer = true;
+                requestAnimationFrame(this.syncTimerHandler);
+            }
+        }
+
+        stopSyncSize() {
+            this.syncTimer = false;
+        }
+
+        syncSize() {
+            if (this.l2d && this.l2d.parent) {
+                // trigger sync size
+                this.img.x = this.img.x;
+            }
+            if (this.syncTimer) {
+                requestAnimationFrame(this.syncTimerHandler);
+            }
+        }
+
         clear () {
             super.clear();
             this.img_visible = true;
             clearL2ds();
             this.l2d = null;
+            this.stopSyncSize();
         }
     }
     uiscript.UI_Character_Skin = L2D_Character_Skin;
