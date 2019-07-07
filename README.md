@@ -11,6 +11,8 @@ npx gulp v2-default
 
 打包好的 mod 在 dist 目录下。
 
+已经打包好的 [一姬替换Live2D Haru](https://github.com/giantpand2000/majsoul-live2d-mods/files/3365671/live2d-character-v2.mspm.zip) 可以在 [releases](https://github.com/giantpand2000/majsoul-live2d-mods/releases/tag/v1.0.0) 下载到。
+
 ## 安装
 
 请参考 [雀魂 Plus](https://github.com/MajsoulPlus/majsoul-plus-client) mod 安装。
