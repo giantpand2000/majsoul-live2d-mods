@@ -38,6 +38,13 @@ npx gulp v2-default
 
 3. 打包，安装。
 
+## 模型位置及大小的调整
+
+模型映射表的每一条其实由三项组成：替换角色的 id, 模型配置 url, 和可以缺省的 放置方式。
+
+默认的放置方式是 `"layoutActual"`，指的是通过计算模型的可视大小，并放入对应的矩形。
+另一种方式是 `"layoutDefault"`，指的是根据模型配置文件 .model.json 里的方式放置。模型配置文件里可以定义一个 `layout` 对象，可以设置 `center_x, center_y, x, y, width, height` 等属性，具体参考 live2d cubism v2 的配置文件。注：这些值是在 [规范坐标系](https://en.wikipedia.org/wiki/Orthographic_projection) 下的值, x 范围 [-1, 1], y 范围 [-1, 1]。
+
 ## 模型说明
 
 目前仅支持 live2d v2 的模型格式。模型的配置文件请使用 `.model.json` 作为后缀。
