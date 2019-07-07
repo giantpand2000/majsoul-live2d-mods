@@ -1,12 +1,12 @@
 {
-    "name": "一姬改Live2D动画",
+    "name": "一姬改Live2D Haru",
     "author": "GiantPanda",
-    "description": "将一姬的立绘替换为Live2D动画，Live2D素材可替换。",
+    "description": "将一姬的立绘替换为Live2D Haru，Live2D素材自定义参考: https://github.com/giantpand2000/majsoul-live2d-mods ",
     "dir": "/files",
     "preview": "preview.jpg",
     "replace": [],
     "execute": {
-        "name": "一姬改Live2D动画插件",
+        "name": "一姬改Live2D Haru插件",
         "entry": [
             "lib/fetch.umd.js",
             "lib/live2d-sdk.clj-pack.min.js",
