@@ -13,7 +13,7 @@ npx gulp v2-default
 
 已经打包好的 [一姬替换Live2D Haru](https://github.com/giantpand2000/majsoul-live2d-mods/files/3365671/live2d-character-v2.mspm.zip) 可以在 [releases](https://github.com/giantpand2000/majsoul-live2d-mods/releases/tag/v1.0.0) 下载到。
 
-[插件演示](https://youtu.be/2Oxv03ox8tQ) [插件演示 2](https://youtu.be/Ac7xEc1lm40)
+[插件演示](https://youtu.be/2Oxv03ox8tQ) [插件演示 2](https://youtu.be/Ac7xEc1lm40) [插件演示 3](https://youtu.be/nR-r3G0TFxA)
 
 ## 安装
 
